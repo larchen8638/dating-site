@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>缘来相亲网</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>缘来相亲网</h1>
+<p>为你找到心仪的TA</p>
+</header>
+<nav>
+<a href="#register">注册</a>
+<a href="#profiles">会员展示</a>
+<a href="#contact">联系我们</a>
+</nav>
+<main>
+<section id="register" class="card">
+<h2>注册资料</h2>
+<form id="userForm">
+<label>姓名</label>
+<input type="text" name="name" required>
+<label>年龄</label>
+<input type="number" name="age" required>
+<label>性别</label>
+<select name="gender" required>
+<option value="">请选择</option>
+<option value="男">男</option>
+<option value="女">女</option>
+</select>
+<label>兴趣爱好</label>
+<textarea name="hobbies" rows="2"></textarea>
+<label>自我评价</label>
+<textarea name="description" rows="2"></textarea>
+<label>头像 URL</label>
+<input type="url" name="avatar" placeholder="输入图片链接">
+<button type="submit">提交</button>
+</form>
+</section>
+
+<section id="profiles" class="card">
+<h2>会员展示</h2>
+<div id="profileList"></div>
+</section>
+
+<section id="contact" class="card">
+<h2>联系我们</h2>
+<p>电话: 123-456-7890</p>
+<p>邮箱: support@yuanlai.com</p>
+</section>
+</main>
+<footer>
+&copy; 2025 缘来相亲网
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+const profileList = document.getElementById('profileList');
+
+// 示例会员数据
+const exampleProfiles = [
+  {name:'小明',age:28,gender:'男',hobbies:'旅游,美食',description:'阳光开朗',avatar:'https://via.placeholder.com/80?text=%E5%B0%8F%E6%98%8E'},
+  {name:'小红',age:25,gender:'女',hobbies:'阅读,电影',description:'温柔体贴',avatar:'https://via.placeholder.com/80?text=%E5%B0%8F%E7%BA%A2'},
+  {name:'小刚',age:30,gender:'男',hobbies:'运动,音乐',description:'乐观积极',avatar:'https://via.placeholder.com/80?text=%E5%B0%8F%E5%88%9A'},
+  {name:'小芳',age:27,gender:'女',hobbies:'摄影,美食',description:'热情开朗',avatar:'https://via.placeholder.com/80?text=%E5%B0%8F%E8%8A%B3'}
+];
+
+// 渲染示例会员
+exampleProfiles.forEach(profile => {
+    const div = document.createElement('div');
+    div.className='profile-card';
+    div.innerHTML=`<img src="${profile.avatar}" alt="头像">
+                   <div><strong>${profile.name}</strong> (${profile.age}岁, ${profile.gender})<br>
+                   爱好: ${profile.hobbies}<br>
+                   自我评价: ${profile.description}</div>`;
+    profileList.appendChild(div);
+});
+
+// 表单提交添加会员
+const form=document.getElementById('userForm');
+form.addEventListener('submit',function(e){
+    e.preventDefault();
+    const data=new FormData(form);
+    const profile={
+        name:data.get('name'),
+        age:data.get('age'),
+        gender:data.get('gender'),
+        hobbies:data.get('hobbies'),
+        description:data.get('description'),
+        avatar:data.get('avatar') || 'https://via.placeholder.com/80'
+    };
+    const div=document.createElement('div');
+    div.className='profile-card';
+    div.innerHTML=`<img src='${profile.avatar}' alt='头像'>
+                   <div><strong>${profile.name}</strong> (${profile.age}岁, ${profile.gender})<br>
+                   爱好: ${profile.hobbies}<br>
+                   自我评价: ${profile.description}</div>`;
+    profileList.appendChild(div);
+    form.reset();
+});
